@@ -1,28 +1,34 @@
-FROM	alpine:3.13
+FROM debian:bullseye
 
-RUN		apk update
+RUN apt-get update && apt-get upgrade -y
 
-RUN		apk add --no-cache --quiet --update curl bash vim
+RUN apt-get install -y --no-install-recommends \
+    curl \
+    bash \
+    vim \
+    mariadb-client \
+    php \
+    php-phar \
+    php-json \
+    php-curl \
+    php-fpm \
+    php-mysqli \
+    php-iconv \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN		apk add --no-cache --quiet --update mariadb-client
+# Ensure the group and user are created if they don't already exist
+RUN groupadd -r nginx || true && useradd -r -g nginx nginx || true
 
-RUN		apk add --no-cache --quiet --update php7 php-phar \
-			php-json php-curl php-fpm php-mysqli php-iconv
+COPY conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
-RUN		adduser -S nginx &&	addgroup -S nginx
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
-COPY	conf/www.conf /etc/php7/php-fpm.d/www.conf
+RUN chmod +x wp-cli.phar
 
-RUN		wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN cp wp-cli.phar /usr/bin/wp
 
-RUN		chmod +x wp-cli.phar
+WORKDIR /var/www/html
 
-RUN		cp wp-cli.phar /usr/bin/wp
+COPY script/configure.sh /tmp/configure.sh
 
-WORKDIR	/var/www/html
-
-COPY	script/configure.sh /tmp/configure.sh
-
-ENTRYPOINT [ "sh", "/tmp/configure.sh" ]
-
-
+ENTRYPOINT ["sh", "/tmp/configure.sh"]

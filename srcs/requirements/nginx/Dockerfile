@@ -1,7 +1,8 @@
-FROM    debian:bulleye
+FROM    debian:bullseye
 
-RUN     apk update && apk upgrade && apk add --no-cache \
-        nginx openssl
+RUN     apt-get update && apt-get upgrade && apt-get install -y \
+        nginx \
+        openssl
 
 RUN     mkdir /etc/nginx/ssl
 
