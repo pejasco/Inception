@@ -31,6 +31,6 @@ RUN cp wp-cli.phar /usr/bin/wp
 
 WORKDIR /var/www/html
 
-COPY script/configure.sh /tmp/configure.sh
+COPY tools/configure.sh /tmp/configure.sh
 
 ENTRYPOINT ["sh", "/tmp/configure.sh"]

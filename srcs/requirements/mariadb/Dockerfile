@@ -8,7 +8,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
 RUN mkdir -p /etc/my.cnf.d
 
 # Copy the configuration script
-COPY script/configure.sh /tmp/configure.sh
+COPY tools/configure.sh /tmp/configure.sh
 
 # Make the script executable
 RUN chmod +x /tmp/configure.sh
