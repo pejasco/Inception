@@ -16,6 +16,8 @@ RUN apt-get install -y --no-install-recommends \
     php-iconv \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && apt-get install -y wget
+
 # Ensure the group and user are created if they don't already exist
 RUN groupadd -r nginx || true && useradd -r -g nginx nginx || true
 
