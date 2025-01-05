@@ -30,3 +30,4 @@ EOF
 fi
 
 sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/mysql/mariadb.conf.d/50-server.cnf
+echo "innodb_buffer_pool_size=512M" >> /etc/mysql/mariadb.conf.d/50-server.cnf

@@ -37,4 +37,13 @@ fclean: 		clean
 
 re:				fclean all
 
-.PHONY:			linux stop clean prune all build up
+refresh:
+				rm -Rf ../data
+				mkdir -p ../data/mariadb
+				mkdir -p ../data/wordpress
+				killall Docker\ Desktop || true
+				killall com.docker.backend || true
+				systemctl --user start docker-desktop && sleep 10 && make re
+
+
+.PHONY:			linux stop clean prune all build up refresh
