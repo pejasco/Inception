@@ -4,17 +4,20 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     mariadb-server \
     mariadb-client
 
-# Ensure the necessary directories exist
-RUN mkdir -p /etc/my.cnf.d
-
 # Copy the configuration script
-COPY tools/configure.sh /tmp/configure.sh
+COPY --chmod=755 ./tools/ /tmp/
 
-# Make the script executable
-RUN chmod +x /tmp/configure.sh
+ARG SQL_HOST
+ARG SQL_USER_NAME
+ARG SQL_USER_PASSWORD
+ARG SQL_ROOT_PASSWORD
+ARG WP_DATABASE_NAME
+
+# Execute the script
+RUN /tmp/configure.sh
 
 # Expose the MySQL port
 EXPOSE 3306
 
 # Start MariaDB using the configuration script
-ENTRYPOINT ["/tmp/configure.sh"]
+ENTRYPOINT ["/tmp/run.sh"]

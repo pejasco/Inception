@@ -5,38 +5,28 @@ if [ ! -d "/run/mysqld" ]; then
 	chown -R mysql:mysql /run/mysqld
 fi
 
-if [ ! -d "/var/lib/mysql/mysql" ]; then
+if true; then
 	
 	chown -R mysql:mysql /var/lib/mysql
 
 	# init database
-	mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm > /dev/null
+	mysql_install_db --basedir=/usr/sbin --datadir=/var/lib/mysql --user=mysql > /dev/null
 
 	tfile=`mktemp`
 	if [ ! -f "$tfile" ]; then
 		return 1
 	fi
 	cat << EOF > $tfile
-USE mysql;
 FLUSH PRIVILEGES;
+ALTER USER 'root'@'localhost' IDENTIFIED BY '$SQL_ROOT_PASSWORD';
 
-DELETE FROM	mysql.user WHERE User='';
-DROP DATABASE test;
-DELETE FROM mysql.db WHERE Db='test';
-DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-
-ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PWD';
-
-CREATE DATABASE $WP_DATABASE_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;
-CREATE USER '$WP_DATABASE_USR'@'%' IDENTIFIED by '$WP_DATABASE_PWD';
-GRANT ALL PRIVILEGES ON $WP_DATABASE_NAME.* TO '$WP_DATABASE_USR'@'%';
+CREATE DATABASE $WP_DATABASE_NAME;
+CREATE USER '$SQL_USER_NAME'@'%' IDENTIFIED by '$SQL_USER_PASSWORD';
+GRANT ALL PRIVILEGES ON $WP_DATABASE_NAME.* TO '$SQL_USER_NAME'@'%';
 
 FLUSH PRIVILEGES;
 EOF
-	/usr/bin/mysqld --user=mysql --bootstrap < $tfile
+	/usr/sbin/mysqld --user=mysql --bootstrap < $tfile
 fi
 
-sed -i "s|skip-networking|# skip-networking|g" /etc/my.cnf.d/mariadb-server.cnf
-sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/my.cnf.d/mariadb-server.cnf
-
-exec /usr/bin/mysqld --user=mysql --console
+sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/mysql/mariadb.conf.d/50-server.cnf

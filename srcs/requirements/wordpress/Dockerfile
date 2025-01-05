@@ -4,19 +4,17 @@ RUN apt-get update && apt-get upgrade -y
 
 RUN apt-get install -y --no-install-recommends \
     curl \
-    bash \
-    vim \
+    wget \
+    ca-certificates \
     mariadb-client \
-    php \
-    php-phar \
-    php-json \
-    php-curl \
-    php-fpm \
-    php-mysqli \
-    php-iconv \
+    php7.4 \
+    php7.4-phar \
+    php7.4-json \
+    php7.4-curl \
+    php7.4-fpm \
+    php7.4-mysqli \
+    php7.4-iconv \
     && rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update && apt-get install -y wget
 
 # Ensure the group and user are created if they don't already exist
 RUN groupadd -r nginx || true && useradd -r -g nginx nginx || true
@@ -29,8 +27,6 @@ RUN chmod +x wp-cli.phar
 
 RUN cp wp-cli.phar /usr/bin/wp
 
-WORKDIR /var/www/html
+COPY --chmod=755 ./tools/ /tmp/
 
-COPY tools/configure.sh /tmp/configure.sh
-
-ENTRYPOINT ["sh", "/tmp/configure.sh"]
+ENTRYPOINT ["/tmp/configure.sh"]
