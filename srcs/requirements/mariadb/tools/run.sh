@@ -1,3 +1,4 @@
 #!/bin/sh
 
-exec /usr/sbin/mysqld --user=mysql --console
+service mariadb start
+sleep infinity

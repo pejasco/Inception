@@ -18,6 +18,10 @@ services:
     expose:
       - "3306"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "0.0.0.0", "-u$$SQL_USER_NAME", "-p$$SQL_USER_PASSWORD"]
+      timeout: 10s
+      retries: 5
 
   nginx:
     container_name: nginx
@@ -46,7 +50,8 @@ services:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
     depends_on:
-      - mariadb
+      mariadb:
+        condition: service_healthy
     expose:
       - "9000"
     restart: unless-stopped

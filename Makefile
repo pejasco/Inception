@@ -43,7 +43,7 @@ refresh:
 				mkdir -p ../data/wordpress
 				killall Docker\ Desktop || true
 				killall com.docker.backend || true
-				systemctl --user start docker-desktop && sleep 10 && make re
+				systemctl --user start docker-desktop && sleep 5 && make re
 
 
 .PHONY:			linux stop clean prune all build up refresh
