@@ -29,4 +29,7 @@ EOF
 	/usr/sbin/mysqld --user=mysql --bootstrap < $tfile
 fi
 
+service mariadb start
+service mariadb stop
+
 sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/mysql/mariadb.conf.d/50-server.cnf

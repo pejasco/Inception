@@ -9,4 +9,6 @@ if [ ! -f "/var/www/wordpress/index.php" ]; then
 fi
 
 service php7.4-fpm start
-sleep infinity
+service php7.4-fpm stop
+
+exec php-fpm7.4 --nodaemonize --allow-to-run-as-root

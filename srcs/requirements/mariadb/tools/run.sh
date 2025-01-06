@@ -1,4 +1,3 @@
 #!/bin/sh
 
-service mariadb start
-sleep infinity
+exec mysqld_safe
