@@ -8,5 +8,7 @@ if [ ! -f "/var/www/wordpress/index.php" ]; then
     wp user create --allow-root $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD
 fi
 
-service php7.4-fpm start
-sleep infinity
+exec php-fpm7.4 --nodaemonize
+
+# service php7.4-fpm start
+# sleep infinity

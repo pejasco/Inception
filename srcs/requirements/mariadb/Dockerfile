@@ -2,22 +2,23 @@ FROM debian:bullseye
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     mariadb-server \
-    mariadb-client
+    mariadb-client \
+
 
 # Copy the configuration script
-COPY --chmod=755 ./tools/ /tmp/
+COPY ./tools/ /tmp/script.sh
 
-ARG SQL_HOST
-ARG SQL_USER_NAME
-ARG SQL_USER_PASSWORD
-ARG SQL_ROOT_PASSWORD
-ARG WP_DATABASE_NAME
+# ARG SQL_HOST
+# ARG SQL_USER_NAME
+# ARG SQL_USER_PASSWORD
+# ARG SQL_ROOT_PASSWORD
+# ARG WP_DATABASE_NAME
 
 # Execute the script
-RUN /tmp/configure.sh
+RUN chmod +x /tmp/script.sh
 
-# Expose the MySQL port
-EXPOSE 3306
+RUN sed -i "s/127.0.0.1/0.0.0.0/" /etc/mysql/mariadb.conf.d/50-server.cnf 
 
-# Start MariaDB using the configuration script
-ENTRYPOINT ["/tmp/run.sh"]
+ENTRYPOINT ["/tmp/script.sh"]
+
+CMD ["mysqld_safe"]
