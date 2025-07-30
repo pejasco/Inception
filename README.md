@@ -30,6 +30,7 @@ This project focused on building a secure, scalable web infrastructure using Doc
 </ul>
 
 <h2 id="about">🛠️ Installation</h2>
+<img src="png/incept_docker.png" width="70%" alt="Running make command" /><br>
 > **Prerequisite:**  
 > Make sure you have Docker Desktop or Docker Engine installed on your computer before running the commands below.
 
@@ -38,12 +39,12 @@ make
 </code></pre>
 
 <p>
-<img src="png/incept_make.png" width="60%" alt="Running make command" /><br>
+<img src="png/incept_make.png" width="70%" alt="Running make command" /><br>
 <em>Running <code>make</code> to build and start all services using Docker Compose.</em>
 </p>
 
 <p>
-<img src="png/incept_done.png" width="60%" alt="Done" /><br>
+<img src="png/incept_done.png" width="70%" alt="Done" /><br>
 <em>If successful, all Docker images, networks, volumes, and containers will be created and started automatically.</em>
 </p>
 
@@ -78,3 +79,8 @@ make
 <em> Just ignore the self-signed SSL certificate warning. Access your site at <code>http://localhost</code>.</em>
 </p>
 
+<h4>MariaDB ⛁</h4>
+<p>
+<img src="png/maria_db_demo.png" width="70%" alt="MariaDB Demo" /><br>
+<em>To interact with MariaDB, log in through the terminal using the <code>mysql</code> client or <code>docker exec</code> into the container. The database is not accessible via browser.</em>
+</p>
