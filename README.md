@@ -61,10 +61,10 @@ make
 <em>Use <code>docker container ls</code> to display all running containers for your project.</em><br>
 </p>
 
-<h4>Docker history for custom images🤖</h4>
+<h4>Docker history for custom images 📜</h4>
 <p>
 <img src="png/maria_db_image_history.png" width="70%" alt="Localhost Warning" /><br>
-<em>For this project, usage of base images is prohabited, like nginx:alpine or wordpress:latest.</em><br>
+<em>For this project, usage of base images is prohabited, like nginx:alpine or wordpress:latest.</em><br><br>
 <em>Instead, we have to start from a minimal image (like alpine or debian) and install/configure everything using Dockerfile.</em><br>
 </p>
 
