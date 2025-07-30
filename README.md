@@ -29,9 +29,6 @@ This project focused on building a secure, scalable web infrastructure using Doc
   <li>Automated orchestration with Docker Compose</li>
 </ul>
 
-<h2 id="usage">⚙️ Usage</h2>
-> **Prerequisite:**  
-> Make sure you have Docker Desktop or Docker Engine installed on your computer before running the commands below.
 
 <pre><code class="bash">
 make
@@ -43,13 +40,13 @@ make
 </p>
 
 <p>
-<img src="png/incept_done.png" width="60%" alt="Running make command" /><br>
+<img src="png/incept_done.png" width="60%" alt="Done" /><br>
 <em>If successful, all Docker images, networks, volumes, and containers will be created and started automatically.</em>
 </p>
 
 <h3>🪐 Containers Overview</h3>
 <p>
-<strong>WordPress:</strong> Access your site at <code>http://localhost</code> or your configured domain.<br>
+<strong>WordPress:</strong> The main web application, available at <code>http://localhost</code> or your configured domain.<br>
 <strong>Nginx:</strong> Acts as a reverse proxy for WordPress.<br>
 <strong>MariaDB:</strong> Serves as the database backend (not directly accessible via browser).
 </p>
@@ -57,10 +54,13 @@ make
 <h2 id="screenshots">📸 Screenshots</h2>
 
 <p>
-<b>Screenshot 1</b><br>
-<img src="your_screenshot1.png" width="70%" alt="Nginx Welcome Page" /><br>
-<em>The Nginx container serving the default welcome page, confirming successful reverse proxy setup.</em>
+<img src="png/localhost_warning.png" width="70%" alt="Localhost Warning" /><br>
+<img src="png/localhost_page.png" width="70%" alt="Localhost Page" /><br>
+<em> Just ignore the self-signed SSL certificate warning. Access your site at <code>http://localhost. </em>
 </p>
 
-<p>
-<b>Screenshot
+<!-- <p>
+<img src="png/localhost_warning.png" width="70%" alt="Localhost Warning" /><br>
+<img src="png/localhost_page.png" width="70%" alt="Localhost Page" /><br>
+<em> Just ignore the self-signed SSL certificate warning. Access your site at <code>http://localhost. </em>
+</p> -->
