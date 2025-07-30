@@ -47,10 +47,11 @@ make
 <em>If successful, all Docker images, networks, volumes, and containers will be created and started automatically.</em>
 </p>
 
+<h3>🪐 Containers Overview</h3>
 <p>
-WordPress: Access your site at <code>http://localhost</code> or your configured domain.<br>
-Nginx acts as a reverse proxy for WordPress.<br>
-MariaDB is used as the database backend (not directly accessible via browser).
+<strong>WordPress:</strong> Access your site at <code>http://localhost</code> or your configured domain.<br>
+<strong>Nginx:</strong> Acts as a reverse proxy for WordPress.<br>
+<strong>MariaDB:</strong> Serves as the database backend (not directly accessible via browser).
 </p>
 
 <h2 id="screenshots">📸 Screenshots</h2>
