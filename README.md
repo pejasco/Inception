@@ -53,12 +53,19 @@ make
 
 <h2 id="screenshots">📸 Screenshots</h2>
 
-<h4>Simple docker commands 🌐</h4>
+<h4>Simple docker commands 🤖</h4>
 <p>
 <img src="png/incept_list.png" width="70%" alt="Localhost Warning" /><br>
 <em>Use <code>docker volume ls</code> to see all Docker volumes created for persistent data storage.</em><br>
 <em>Use <code>docker images</code> to list all Docker images built for your services.</em><br>
 <em>Use <code>docker container ls</code> to display all running containers for your project.</em><br>
+</p>
+
+<h4>Docker history for custom images🤖</h4>
+<p>
+<img src="png/maria_db_image_history.png" width="70%" alt="Localhost Warning" /><br>
+<em>For this project, usage of base images is prohabited, like nginx:alpine or wordpress:latest.</em><br>
+<em>Instead, we have to start from a minimal image (like alpine or debian) and install/configure everything using Dockerfile.</em><br>
 </p>
 
 <h4>WordPress Home 🌐</h4>
