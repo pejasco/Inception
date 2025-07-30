@@ -5,6 +5,8 @@ DOCKER_COMPOSE	= DOCKER_DEFAULT_PLATFORM=linux/amd64 docker compose -f ./srcs/do
 DOCKER			= docker
 
 all:			
+				mkdir -p /home/${USER}/data/wordpress
+				mkdir -p /home/${USER}/data/mariadb
 				${DOCKER_COMPOSE} build
 				${DOCKER_COMPOSE} up -d
 
