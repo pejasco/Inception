@@ -56,15 +56,15 @@ make
 <h4>Simple docker commands 🌐</h4>
 <p>
 <img src="png/incept_list.png" width="70%" alt="Localhost Warning" /><br>
-<em>Use <code>docker volume ls</code> to see all Docker volumes created for persistent data storage.</em>
-<em>Use <code>docker images</code> to list all Docker images built for your services.</em>
-<em>Use <code>docker container ls</code> to display all running containers for your project.</em>
+<em>Use <code>docker volume ls</code> to see all Docker volumes created for persistent data storage.</em><br>
+<em>Use <code>docker images</code> to list all Docker images built for your services.</em><br>
+<em>Use <code>docker container ls</code> to display all running containers for your project.</em><br>
 </p>
 
 <h4>WordPress Home 🌐</h4>
 <p>
 <img src="png/localhost_warning.png" width="70%" alt="Localhost Warning" /><br>
 <img src="png/localhost_page.png" width="70%" alt="Localhost Page" /><br>
-<em> Just ignore the self-signed SSL certificate warning. Access your site at <code>http://localhost</code> </em>
+<em> Just ignore the self-signed SSL certificate warning. Access your site at <code>http://localhost</code>.</em>
 </p>
 
