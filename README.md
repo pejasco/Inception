@@ -29,7 +29,7 @@ This project focused on building a secure, scalable web infrastructure using Doc
   <li>Automated orchestration with Docker Compose</li>
 </ul>
 
-
+<h2 id="about">🛠️ Installation</h2>
 > **Prerequisite:**  
 > Make sure you have Docker Desktop or Docker Engine installed on your computer before running the commands below.
 
