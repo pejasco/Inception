@@ -39,7 +39,7 @@ make
 </code></pre>
 
 <p>
-<img src="png/incept_make.png" width="70%" alt="Running make command" /><br>
+<img src="png/incept_make.png" width="90%" alt="Running make command" /><br>
 <em>Running <code>make</code> to build and start all services using Docker Compose.</em>
 </p>
 
