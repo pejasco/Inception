@@ -30,6 +30,9 @@ This project focused on building a secure, scalable web infrastructure using Doc
 </ul>
 
 
+> **Prerequisite:**  
+> Make sure you have Docker Desktop or Docker Engine installed on your computer before running the commands below.
+
 <pre><code class="bash">
 make
 </code></pre>
