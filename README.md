@@ -87,5 +87,5 @@ make
 <h4>Cleanup 🧹</h4>
 <p>
 <img src="png/incept_fclean.png" width="70%" alt="MariaDB Demo" /><br>
-<em>To perform a full cleanup, this commit removes all Docker images, containers, networks, and volumes created by the project. Use the <code>fclean</code> target to reset your Docker environment completely.</em>
+<em>To perform a full cleanup, this commit removes all Docker images, containers, networks, and volumes created by the project. Use the <code>make fclean</code> target to reset your Docker environment completely.</em>
 </p>
